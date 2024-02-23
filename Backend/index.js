@@ -1,14 +1,11 @@
 const express = require('express');
-app = express()
+const mainRouter = require('./routes/index');
 
-app.use(express.json())
+const app = express();
 
-app.get('/', (req, res) => {
-    res.send("hello")
-})
+app.use(express.json());
+app.use('/api/v1', mainRouter);
 
-app.post('/todo', (req, res)=>{
-
-})
-
-app.listen(3001);
+app.listen(3001, () => {
+  console.log('Server is running on port 3001');
+});

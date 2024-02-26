@@ -3,6 +3,7 @@ const router = express.Router();
 const { validateCredentials } = require('../types');
 
 router.post('/login', (req, res) => {
+  console.log("Here at backedn in login route")
   const { username, password } = req.body; // Assuming username and password are in the request body
   const validation = validateCredentials(username, password);
 

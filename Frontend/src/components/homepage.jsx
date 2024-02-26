@@ -1,11 +1,25 @@
-import React from 'react'
-import NavigationBar from './navigationBar'
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import NavigationBar from './navigationBar';
+import LoginForm from './loginform';
+import SignupForm from './signupform';
 
-export default function HomePage() {
+const HomePage = () => {
   return (
-    <div>
-      <NavigationBar />
-      <img src=''>Image Tag</img>
-    </div>
-  )
-}
+    <Router>
+      <div>
+        <NavigationBar />
+        <Switch>
+          <Route path="/api/v1/user/login">
+            <LoginForm />
+          </Route>
+          <Route path="/api/v1/user/signup">
+            <SignupForm />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
+  );
+};
+
+export default HomePage;

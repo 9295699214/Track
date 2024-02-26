@@ -1,18 +1,19 @@
-// NavigationBar.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default NavigationBar = () => {
+const NavigationBar = () => {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="api/v1/login">Login</Link>
-        </li>
-        <li>
-          <Link to="api/v1//signup">Signup</Link>
-        </li>
-      </ul>
+    <nav className="bg-gray-900">
+      <div className="max-w-screen-xl mx-auto px-4 py-6 flex justify-between items-center">
+        <Link to="/api/v1/user/login" className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer">
+          Login
+        </Link>
+        <Link to="/api/v1/user/signup" className="text-white hover:text-gray-300 transition-colors duration-300 cursor-pointer">
+          Signup
+        </Link>
+      </div>
     </nav>
   );
 };
+
+export default NavigationBar;

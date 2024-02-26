@@ -7,11 +7,8 @@ const SignupForm = () => {
 
   const handleSignup = async () => {
     const formData = { username, password };
-    console.log(formData);
     try {
-        console.log("before sending reuqest")
       const response = await axios.post('http://localhost:3002/api/v1/user/signup', formData);
-      console.log("response", response);
       console.log('Signup successful:', response.data);
     } catch (error) {
       console.error('Signup failed:', error);

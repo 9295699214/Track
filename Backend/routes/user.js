@@ -33,24 +33,19 @@ router.post('/login', async(req, res) => {
 });
 
 router.post('/signup', async (req, res) => {
-  console.log("Inside Signup route backend", req.body)
   const { username, password } = req.body;
   const validation = validateCredentials(username, password);
-  console.log("Inside Signup")
   if (!validation.valid) {
     return res.status(400).json({ errors: validation.errors });
   }
 
   try {
-    // Create the user in the database
-    console.log("Inside Signup route backend")
     const newUser = await prisma.user.create({
       data: {
         username,
         password,
       },
     });
-    console.log(newUser);
     res.status(201).json({ message: 'User created successfully', user: newUser });
   } catch (error) {
     console.error('Error:', error);

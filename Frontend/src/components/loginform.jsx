@@ -7,11 +7,9 @@ const LoginForm = () => {
 
   const handleLogin = async () => {
     const formData = { username, password }; // Create form data object
-    console.log(formData); // Corrected variable name
     try {
       // Make a POST request to the login endpoint
       const response = await axios.post('http://localhost:3002/api/v1/user/login', formData);
-      console.log("response",response);
       // Handle successful login response (e.g., store authentication token)
       console.log('Login successful:', response.data);
     } catch (error) {

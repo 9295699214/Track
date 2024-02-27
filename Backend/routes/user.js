@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const { validateCredentials } = require('../types');
+const jwt = require('jsonwebtoken')
+require('dotenv').config(); 
+
+
 
 const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
@@ -25,7 +29,9 @@ router.post('/login', async(req, res) => {
       return res.status(401).json({ message: 'Invalid credentials' });
     }
 
-    res.status(200).json({ message: 'Login successful', user });
+      const token = jwt.sign({username: username}, process.env.JWT_PASS)
+
+    res.status(200).json({ message: 'Login successful', user, token });
   } catch (error) {
     console.error('Error:', error);
     res.status(500).json({ message: 'Internal server error' });

@@ -1,19 +1,28 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Import axios
+import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory();
 
   const handleLogin = async () => {
-    const formData = { username, password }; // Create form data object
     try {
-      // Make a POST request to the login endpoint
+      const formData = { username, password };
       const response = await axios.post('http://localhost:3002/api/v1/user/login', formData);
-      // Handle successful login response (e.g., store authentication token)
+      
+      // Handle successful login response
       console.log('Login successful:', response.data);
+      
+      // Store token and expiry time in localStorage
+      localStorage.setItem('token', response.data.token);
+      const expiryTime = new Date().getTime() + 3600000; // 1 hour
+      localStorage.setItem('tokenExpiry', expiryTime);
+
+      // Redirect to dashboard
+      history.push('/dashboard');
     } catch (error) {
-      // Handle login error
       console.error('Login failed:', error);
     }
   };

@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      {/* <ProtectedRoute path="/api/v1/dashboard" component={dashboard}/> */}
+      <ProtectedRoute path="/api/v1/dashboard" component={dashboard}/>
       <HomePage/>
     </>
   )

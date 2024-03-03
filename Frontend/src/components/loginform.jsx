@@ -21,7 +21,7 @@ const LoginForm = () => {
       localStorage.setItem('tokenExpiry', expiryTime);
 
       // Redirect to dashboard
-      history.push('/dashboard');
+      history.push('/api/v1/dashboard');
     } catch (error) {
       console.error('Login failed:', error);
     }

@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-export default function dashboard() {
+const Dashboard = () => {
   return (
     <div>
-      <h3>Inside Dashboard Component</h3>
+      <h1>Welcome to the Dashboard!</h1>
+      {/* Add your dashboard content here */}
     </div>
-  )
-}
+  );
+};
+
+export default Dashboard;

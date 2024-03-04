@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@react-navigation/native": "^6.1.14",
+    "@react-navigation/stack": "^6.3.25",
+    "react-native-gesture-handler": "^2.15.0",
+    "react-native-reanimated": "^3.7.2",
+    "react-native-screens": "^3.29.0"
+  }
+}

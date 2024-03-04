@@ -10,6 +10,7 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 router.post('/login', async(req, res) => {
+  console.log("Inside login page")
   const { username, password } = req.body;
   const validation = validateCredentials(username, password);
 
